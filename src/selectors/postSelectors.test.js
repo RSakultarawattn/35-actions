@@ -12,4 +12,13 @@ describe('post selectors', () => {
     expect(posts).toEqual([{ title: 'life and stuff', 
       body: 'things and stuff about life and stuff' }]);
   });
+
+  it('select the number of posts', () => {
+    const state = {
+      posts: [{ title: 'life and stuff', 
+        body: 'things and stuff about life and stuff' }]
+    };
+
+    expect(countPosts(state)).toEqual(1);
+  });
 });
