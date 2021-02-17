@@ -28,6 +28,7 @@ const PostForm = () => {
         value={body}
         onChange={({ target }) => setBody(target.value)}
       />
+      <button>Create Post</button>
 
     </form>
   );
