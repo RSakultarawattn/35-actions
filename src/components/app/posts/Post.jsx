@@ -12,14 +12,17 @@ const Post = ({ title, body }) => {
 
   return (
     <>
+      
       <dl>
         <dt>Title</dt>
         <dd>{title}</dd>
 
         <dt>Body</dt>
-        <db>{body}</db>
+        <dd>{body}</dd>
+        <button onClick={handleClick}>Delete</button>
       </dl>
-      <button onClick={handleClick}>Delete</button>
+        
+     
     </>
   );
 };
