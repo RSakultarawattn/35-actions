@@ -1,0 +1,21 @@
+body {
+    background-image: url("/src/components/assets/bloggybg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+dl {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+
+
