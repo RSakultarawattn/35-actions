@@ -5,18 +5,22 @@ import { createComments } from '../../../actions/commentActions';
 
 const Comment = ({ index }) => {
   const dispatch = useDispatch();
-    
+
+  
+  
 
   const handleClick = () => {
-    dispatch(deleteComment(index, comment));
+    dispatch(deleteComment(index));
   };
 
   return (
-      <>
+    <>
 
       <dl>
-          <dt>Comment</dt>
-          <dd>{index}</dd>
+        <dt>Comment</dt>
+        <dd>{index}</dd>
+        <button onClick={handleClick}>Delete</button>
       </dl>
-  )
+    </>
+  );
 };

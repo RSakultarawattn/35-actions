@@ -2,7 +2,7 @@ import { createComment } from '../actions/commentActions';
 import reducer from './commentReducer';
 
 describe('comment reducer', () => {
-  it.only('handles the CREATE_COMMENT action', () => {
+  it('handles the CREATE_COMMENT action', () => {
     const state = {
       comments: []
     };
