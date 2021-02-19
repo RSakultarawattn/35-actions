@@ -1,4 +1,4 @@
-import { createComment } from '../actions/commentActions';
+import { createComment, deleteComment, deleteComments } from '../actions/commentActions';
 import reducer from './commentReducer';
 
 describe('comment reducer', () => {
@@ -7,14 +7,38 @@ describe('comment reducer', () => {
       comments: []
     };
 
-    const action = createComment([]);
+    const action = createComment({
+      index: '1',
+      body: 'great comment'
+    });
 
-    const newState = reducer(state, action);
+    const updatedState = reducer(state, action);
 
-    expect(newState)
+    expect(updatedState)
       .toEqual({
-        comments: []
+        comments: [{
+          index: '1',
+          body: 'great comment'
+        }]
       });
 
   });
 });
+
+it('deletes a comment', () => {
+  const state = {
+    comments: [{
+      index: '1',
+      body: 'really cool comment'
+    }]
+  };
+
+  const action = deleteComment('really cool comment');
+
+  const updatedState = reducer(state, action);
+
+  expect(updatedState).toEqual({
+    comments: []
+  });
+});
+
