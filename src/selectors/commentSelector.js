@@ -1,4 +1,4 @@
 
 
-export const getComments = state => state.comment.comments;
+export const getComments = state => state.comments.comments;
 
