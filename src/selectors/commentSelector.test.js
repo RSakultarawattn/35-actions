@@ -2,13 +2,21 @@ import { getComments } from './commentSelector';
 
 describe('comment selectors', () => {
   
-  it('select the comments', () => {
+  it('selects the comments', () => {
     const state = {
-      comments: [{ title: 'life and stuff', 
-      }]
+      comments: {
+        comments: [{
+          comments: 'wow'
+        }]
+      }
     };
+    
 
-    expect(getComments(state)).toEqual([{ title: 'life and stuff', 
+    const comments = getComments(state);
+
+    expect(comments).toEqual([{ 
+      comments: 'wow'
     }]);
   });
 });
+
