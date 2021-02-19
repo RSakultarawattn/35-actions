@@ -1,24 +1,24 @@
-import { countPosts, getPosts } from './postSelectors';
+import { getPosts } from './postSelectors';
 
 describe('post selectors', () => {
-  it('select the list of posts from state', () => {
+  it('selects the posts from state', () => {
     const state = {
-      posts: [{ title: 'life and stuff', 
-        body: 'things and stuff about life and stuff' }]
+      posts: {
+        posts: {
+          '0': {
+            title: 'life and stuff',
+            body: 'things and stuff about life and stuff'
+          }
+        }
+      }
     };
 
     const posts = getPosts(state);
 
-    expect(posts).toEqual([{ title: 'life and stuff', 
-      body: 'things and stuff about life and stuff' }]);
-  });
-
-  it('select the number of posts', () => {
-    const state = {
-      posts: [{ title: 'life and stuff', 
-        body: 'things and stuff about life and stuff' }]
-    };
-
-    expect(countPosts(state)).toEqual(1);
+    expect(posts).toEqual([{
+      index: '0',
+      title: 'life and stuff',
+      body: 'things and stuff about life and stuff'
+    }]);
   });
 });
