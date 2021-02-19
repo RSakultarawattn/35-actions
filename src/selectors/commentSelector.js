@@ -1,3 +1,4 @@
 import {  getPosts } from './postSelectors';
 
-export const getComments = state => getPosts(state).length;
+export const getComments = state => state.comments;
+

@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getComments } from '../../../selectors/commentSelector';
-import Comment from './Comment';
+import Comments from './Comments';
 
 const CommentList = () => {
-  const comments = useSelector(getComments);
+  const comment = useSelector(getComments);
 
-  const commentElements = comments.map(comment => (
+  const commentElements = comment.map(comment => (
     <li key={comment.index}>
-      <Comment {...comment} />
+      <Comments {...comment} />
     </li>
   ));
 

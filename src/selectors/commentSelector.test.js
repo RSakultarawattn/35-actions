@@ -4,9 +4,11 @@ describe('comment selectors', () => {
   
   it('select the comments', () => {
     const state = {
-      comments: [{}]
+      comments: [{ title: 'life and stuff', 
+      }]
     };
 
-    expect(getComments(state)).toEqual(1);
+    expect(getComments(state)).toEqual([{ title: 'life and stuff', 
+    }]);
   });
 });
