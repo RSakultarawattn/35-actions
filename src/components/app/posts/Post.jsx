@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../../actions/postActions';
+import CommentForm from '../comments/CommentForm';
+import CommentList from '../comments/CommentList';
+
 
 const Post = ({ title, body }) => {
   const dispatch = useDispatch();
@@ -21,6 +24,9 @@ const Post = ({ title, body }) => {
         <dd>{body}</dd>
         <button onClick={handleClick}>Delete</button>
       </dl>
+      <CommentForm/>
+      <CommentList/>
+          
         
      
     </>
