@@ -1,33 +1,42 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { createComment } from '../../../actions/commentActions';
 
 
-const CommentForm = () =>  {
+export default function CommentForm({ index }) {
   const dispatch = useDispatch();
 
-  const [comment, setComment] = useState('');
+  const [body, setBody] = useState('');
 
-  const handleSubmit = event => {
+  const submitForm = event => {
     event.preventDefault();
 
-    dispatch(createComment({ comment }));
+    dispatch(createComment({ index, body }));
+  };
+
+  const updateBody = ({ target }) => {
+    const { value: body } = target;
+
+    setBody(body);
   };
     
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={submitForm}>
       <input
+        required id="comment-body"
         type="text"
+        onChange={updateBody}
         placeholder="Comment"
-        value={comment}
-        onChange={({ target }) => setComment(
-          target.value
-        )}
+        value={body}
       />
       <button>Comment</button>
     </form>
         
   );
-};
+}
 
-export default CommentForm;
+
+CommentForm.propTypes = {
+  index: PropTypes.string.isRequired
+};
