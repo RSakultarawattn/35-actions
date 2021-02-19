@@ -12,7 +12,7 @@ const Post = ({ index, title, body, comments }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(deletePost(body));
+    dispatch(deletePost(index));
     dispatch(deleteComments(index));
 
   };
