@@ -1,31 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import Post from '../posts/Post';
-import { commentActions } from '../../../actions/commentActions';
+import { deleteComment } from '../../../actions/commentActions';
 
-const Comments = ({ comments }) => {
-  const deleteComment = useSelector(deleteComment);
-  
+export default function Comments({ body }) {
+  const dispatch = useDispatch();
 
-  const handleClick = () => {
-    useDispatch(deleteComment(comments));
+  const handleDelete = () => {
+    dispatch(deleteComment(body));
   };
 
   return (
     <>
-
-      <dl>
-        <dt>Comment</dt>
-        <dd>{comments}</dd>
-        <button onClick={handleClick}>Delete</button>
-      </dl>
+      { body }
+      <button onClick={handleDelete}>Delete</button>
     </>
   );
-};
+}
 
-Post.propTypes = {
-  comments: PropTypes.string.isRequired
+Comments.propTypes = {
+  body: PropTypes.string.isRequired
 };
-
-export default Comments;

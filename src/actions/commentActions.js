@@ -5,13 +5,13 @@ export const createComment = comment => ({
 });
 
 export const DELETE_COMMENT = 'DELETE_COMMENT';
-export const deleteComment = body => ({
+export const deleteComment = (body) => ({
   type: DELETE_COMMENT,
-  payload: body
+  payload: (body)
 });
 
-export const DELETE_POST_COMMENTS = 'DELETE_COMMENT';
+export const DELETE_POST_COMMENTS = 'DELETE_POST_COMMENT';
 export const deleteComments = index => ({
   type: DELETE_POST_COMMENTS,
   payload: index
-})
+});
