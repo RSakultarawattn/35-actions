@@ -1,28 +1,35 @@
 import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/commentActions';
+import { DELETE_POST } from '../actions/postActions';
 
 
-const initialState = {
+export const initialState = {
   comments: []
 };
 
-export default function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
   switch(action.type) {
     case CREATE_COMMENT:
       return {
         ...state, 
-        comments: state.comments.map((comment, i) => {
-          if(i === action.payload.index) return action.payload.comment;
-          return comment;        
-        }) };
-    case DELETE_COMMENT:
+        comments: [...state.comments, action.payload]
+      };
+    case DELETE_COMMENT: {
+      const comments = state
+        .comments
+        .filter(comment => comment.body !== action.payload);
+
       return {
         ...state, 
-        comments: state.comments.filter(
-          (comment) => comment.title !== action.payload
-        )
+        comments
       };
+    }
+      
+    case DELETE_POST:
+      return initialState(state, action.payload);
       
     default:
       return state;
   }
-}
+};
+
+export default reducer;
