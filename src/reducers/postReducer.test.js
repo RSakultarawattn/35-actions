@@ -15,21 +15,30 @@ describe('post reducer', () => {
     const newState = reducer(state, action);
 
     expect(newState).toEqual({
-      posts: [{ title: 'life and stuff', 
-        body: 'things and stuff about life and stuff' }]
+      posts: {
+        '0': {
+          title: 'life and stuff',
+          body: 'things and stuff about life and stuff'
+        }
+      }
     });
   });
 
   it('handles the DELETE_POST action', () => {
     const state = {
-      posts: [{ title: 'life and stuff', 
-        body: 'things and stuff about life and stuff' }]
+      posts: {
+        '0': {
+          title: 'life and stuff',
+          body: 'things and stuff about life and stuff'
+        }
+      }
     };
 
-    const action = deletePost('life and stuff');
+    const action = deletePost('0');
+    const newState = reducer(state, action);
 
-    expect(reducer(state, action)).toEqual({
-      posts: []
+    expect(newState).toEqual({
+      posts: {}
     });
   });
 });
