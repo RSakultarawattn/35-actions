@@ -1,5 +1,5 @@
-import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/commentActions';
-import { DELETE_POST } from '../actions/postActions';
+import { CREATE_COMMENT, DELETE_POST_COMMENTS, DELETE_COMMENT } from '../actions/commentActions';
+
 
 
 export const initialState = {
@@ -13,10 +13,10 @@ const reducer = (state = initialState, action) => {
         ...state, 
         comments: [...state.comments, action.payload]
       };
-    case DELETE_COMMENT: {
+    case DELETE_POST_COMMENTS: {
       const comments = state
         .comments
-        .filter(comment => comment.body !== action.payload);
+        .filter(comment => comment.index !== action.payload);
 
       return {
         ...state, 
@@ -24,9 +24,18 @@ const reducer = (state = initialState, action) => {
       };
     }
       
-    case DELETE_POST:
-      return initialState(state, action.payload);
+    case DELETE_COMMENT:{
+      const comments = state
+        .comments
+        .filter(comment => comment.body !== action.payload);
+
+   
       
+      return {
+        ...state, 
+        comments
+      };
+    }
     default:
       return state;
   }

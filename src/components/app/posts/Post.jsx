@@ -7,11 +7,12 @@ import CommentForm from '../comments/CommentForm';
 import CommentList from '../comments/CommentList';
 
 
+
 const Post = ({ index, title, body, comments }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(deletePost(index));
+    dispatch(deletePost(body));
     dispatch(deleteComments(index));
 
   };
@@ -22,13 +23,18 @@ const Post = ({ index, title, body, comments }) => {
       <dl>
         <dt>Title</dt>
         <dd>{title}</dd>
-
+  
         <dt>Body</dt>
         <dd>{body}</dd>
+
         <button onClick={handleClick}>Delete</button>
+
+        <CommentForm index={index}/>
+        <CommentList comments={comments}/>
+       
       </dl>
-      <CommentForm index={index}/>
-      <CommentList comments={comments}/>
+      
+      
           
         
      
