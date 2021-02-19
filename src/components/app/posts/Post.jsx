@@ -27,7 +27,7 @@ const Post = ({ index, title, body, comments }) => {
         <dt>Body</dt>
         <dd>{body}</dd>
 
-        <button onClick={handleClick}>Delete</button>
+        <button onClick={handleClick}>Delete Posts</button>
 
         <CommentForm index={index}/>
         <CommentList comments={comments}/>

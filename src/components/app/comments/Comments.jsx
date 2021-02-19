@@ -13,7 +13,7 @@ export default function Comments({ body }) {
   return (
     <>
       { body }
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete}>Delete Comment</button>
     </>
   );
 }
